@@ -32,20 +32,20 @@
       #PS="ngModel" minlength="8" required 
       [class.is-valid]="PS.valid && PS.dirty" [class.is-invalid]="PS.invalid && PS.dirty "
       >
-      <div *ngIf="PS.invalid && PS.dirty">
+      <!-- <div *ngIf="PS.invalid && PS.dirty">
           <span class="text-danger" *ngIf="PS.errors?.['required']"> This field is required</span>
-          <span class="text-danger" *ngIf="PS.errors?.['minlength']"> Minimum length is 8 characters</span>
+          <span class="text-danger" *ngIf="PS.errors?.['minlength']"> Minimum length is 8 characters</span> -->
           <!-- <span class="text-danger" *ngIf="PS.errors?.['pattern']"> Password must contain at least one(Uppercase, LowerCase, Number & Symbol ) </span> -->
-      </div>
+      <!-- </div> -->
 
-      <input type="checkbox" name="over18" class="" placeholder="over18" value=true [(ngModel)]="CB" required
+      <!-- <input type="checkbox" name="over18" class="" placeholder="over18" value=true [(ngModel)]="CB" required
       #CBC="ngModel" [class.is-valid]="CBC.valid && CBC.touched"  [class.is-invalid]="EM.invalid && EM.touched"
       > Over 18 ?
       <div class="text-danger" *ngIf="CBC.invalid "> 
           <span *ngIf="CBC.errors?.['required']">Thick The Box To Confirm You Are Over 18 Years </span>
-      </div>
+      </div> -->
 
-      <button (click)="signUp()" [disabled]="formone.invalid" class="btn btn-primary w-100" > REGISTER </button>
+      <button (click)="signUp()"  class="btn btn-primary w-100" > REGISTER </button>
       
      </form>
   </div>

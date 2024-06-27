@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ServeService } from './serve.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -14,23 +14,16 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'frontEndConnect1';
-  public firstName:string=''; public lastName:string=''; public email:string=''; public password:string=''; public CB:boolean=false;
-  public obj={ firstName:'',  lastName:'',  email:'', password:'',  CB:''};
-
-  constructor(public userService:ServeService) {}
-  // ngOnInit(){
-  //   this.userService.getStudent().subscribe(data=>{
-  //     console.log(data);
-  //   })
-  //   this.userService.postStudent().subscribe((data)=>{
-  //     console.log(data);
-      
-  //   })
-  // }
+  public firstName:string=''; public lastName:string=''; public email:string=''; public password:string=''; 
+  
+  constructor(public userService:ServeService, public http:HttpClient) {}
 
   
   signUp(){
-    this.userService.userSignUp(this.obj).subscribe(data=>{
+    let obj={ firstname:this.firstName,  lastname:this.lastName,  email:this.email, password:this.password};
+    //console.log(obj);
+    
+    this.http.post<any>('http://localhost/may-php-class/Practice/post.php', obj).subscribe(data=>{
       console.log(data);
       
     })
